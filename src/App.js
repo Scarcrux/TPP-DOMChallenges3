@@ -44,6 +44,13 @@ class App extends Component {
     console.log("color change event: " + this.state.currentColor);
   };
 
+  handleRemoveRow = () => {
+    if (this.state.grid.length > 1) {
+      const grid = this.state.grid.slice(0, -1);
+      this.setState({grid: grid});
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -51,10 +58,12 @@ class App extends Component {
           handleAddColumn={this.handleAddColumn}
           handleAddRow={this.handleAddRow}
           handleColorChange={this.handleColorChange}
+          handleRemoveRow={this.handleRemoveRow}
         />
         <header className="App-header">
           <button onClick={this.handleAddRow}>Add a row</button>
           <button onClick={this.handleAddColumn}>Add a column</button>
+          <button onClick={this.handleRemoveRow}>Remove a row</button>
           {console.log(this.state.grid)}
           <Table
             grid={this.state.grid}

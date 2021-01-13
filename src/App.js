@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Table from "./components/Table";
-import Menu from './components/Menu'
+import { Menu, Table } from "./components";
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +14,7 @@ class App extends Component {
     }
 
     this.state = {
+      coloring: false,
       currentColor: "default",
       grid: initialGrid,
     }
@@ -44,15 +44,11 @@ class App extends Component {
   handleClick = (x, y) => {
     const grid = this.state.grid;
     grid[x][y] = this.state.currentColor;
-    console.log("new array x y: " + grid[x][y]);
-    console.log("x, y: " + x + ", ", y);
-    console.log("new grid: " + grid);
     this.setState({grid: grid});
   };
 
   handleColorChange = (e) => {
     this.setState({currentColor: e});
-    console.log("color change event: " + this.state.currentColor);
   };
 
   handleFillAll = () => {
@@ -73,6 +69,24 @@ class App extends Component {
       }
     }
     this.setState({grid: grid});
+  }
+
+  handleMouseDown = (x, y) => {
+    const grid = this.state.grid;
+    grid[x][y] = this.state.currentColor;
+    this.setState({coloring: true, grid: grid});
+  }
+
+  handleMouseUp = () => {
+    this.setState({coloring: false});
+  }
+
+  handleMouseEnter = (x, y) => {
+    if (this.state.coloring) {
+      const grid = this.state.grid;
+      grid[x][y] = this.state.currentColor;
+      this.setState({grid: grid});
+    }
   }
 
   handleRemoveColumn = () => {
@@ -99,10 +113,12 @@ class App extends Component {
           handleRemoveRow={this.handleRemoveRow}
         />
         <header className="App-header">
-          {console.log(this.state.grid)}
           <Table
             grid={this.state.grid}
             handleClick={this.handleClick}
+            handleMouseEnter={this.handleMouseEnter}
+            handleMouseDown={this.handleMouseDown}
+            handleMouseUp={this.handleMouseUp}
             rows={this.state.grid ? this.state.grid.length : 0}
             cols={this.state.grid.length ? this.state.grid[0].length : 0}
           />

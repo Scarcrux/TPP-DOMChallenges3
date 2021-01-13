@@ -17,6 +17,11 @@ class App extends Component {
     }
   }
 
+  handleAddColumn = () => {
+    const grid = this.state.grid.map(row => row.concat(this.state.currentColor));
+    this.setState({grid: grid,})
+  };
+
   handleAddRow = () => {
     const row = new Array(this.state.grid[0].length).fill(this.state.currentColor)
     this.setState({grid: [...this.state.grid, row],})
@@ -25,9 +30,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Menu onclick={this.handleAddRow}/>
+        <Menu
+          handleaddcolumn={this.handleAddColumn}
+          handleaddrow={this.handleAddRow}
+        />
         <header className="App-header">
           <button onClick={this.handleAddRow}>Add a row</button>
+          <button onClick={this.handleAddColumn}>Add a column</button>
           {console.log(this.state.grid)}
           <Table
             grid={this.state.grid}

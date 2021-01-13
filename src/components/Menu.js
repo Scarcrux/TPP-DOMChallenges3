@@ -27,10 +27,10 @@ const Menu = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="#" onClick={props.onclick}>Add Row</NavLink>
+              <NavLink href="#" onClick={props.handleaddrow}>Add Row</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Add Column</NavLink>
+              <NavLink href="#" onClick={props.handleaddcolumn}>Add Column</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>

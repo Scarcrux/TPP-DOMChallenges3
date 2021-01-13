@@ -8,12 +8,13 @@ export default function TableRow(props) {
       <TableCell
         grid={props.grid}
         handleClick={props.handleClick}
+        handleMouseEnter={props.handleMouseEnter}
+        handleMouseDown={props.handleMouseDown}
+        handleMouseUp={props.handleMouseUp}
         x={props.row}
         y={i}
       />
     );
   }
-
-  console.log("row: " + row);
   return <tr className="grid-row">{row}</tr>;
 }

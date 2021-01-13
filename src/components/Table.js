@@ -9,11 +9,13 @@ function Table(props) {
         cols={props.cols}
         grid={props.grid}
         handleClick={props.handleClick}
+        handleMouseEnter={props.handleMouseEnter}
+        handleMouseDown={props.handleMouseDown}
+        handleMouseUp={props.handleMouseUp}
         row={i}
       />
     );
   }
-  console.log("cells: " + cells)
   return <table id="grid"><tbody>{cells}</tbody></table>;
 }
 

@@ -48,6 +48,13 @@ class App extends Component {
     console.log("color change event: " + this.state.currentColor);
   };
 
+  handleFillAll = () => {
+    const grid = this.state.grid.map(row =>
+      row.map(() => this.state.currentColor)
+    );
+    this.setState({grid: grid});
+  };
+
   handleFillUncolored = () => {
     const { currentColor } = this.state;
     const grid = this.state.grid;
@@ -78,15 +85,12 @@ class App extends Component {
           handleAddColumn={this.handleAddColumn}
           handleAddRow={this.handleAddRow}
           handleColorChange={this.handleColorChange}
+          handleFillAll={this.handleFillAll}
           handleFillUncolored={this.handleFillUncolored}
           handleRemoveColumn={this.handleRemoveColumn}
           handleRemoveRow={this.handleRemoveRow}
         />
         <header className="App-header">
-          <button onClick={this.handleAddRow}>Add a row</button>
-          <button onClick={this.handleAddColumn}>Add a column</button>
-          <button onClick={this.handleRemoveRow}>Remove a row</button>
-          <button onClick={this.handleRemoveColumn}>Remove a column</button>
           {console.log(this.state.grid)}
           <Table
             grid={this.state.grid}

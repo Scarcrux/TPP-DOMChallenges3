@@ -32,6 +32,12 @@ const Menu = (props) => {
             <NavItem>
               <NavLink href="#" onClick={props.handleAddColumn}>Add Column</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="#" onClick={props.handleRemoveRow}>Remove Row</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#" onClick={props.handleRemoveColumn}>Remove Column</NavLink>
+            </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Color
@@ -52,6 +58,12 @@ const Menu = (props) => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="#" onClick={props.handleFillUncolored}>Fill Uncolored</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#" onClick={props.handleFillAll}>Fill All</NavLink>
+            </NavItem>
           </Nav>
           <NavLink href="https://www.techtalentpipeline.nyc/">TTP</NavLink>
         </Collapse>

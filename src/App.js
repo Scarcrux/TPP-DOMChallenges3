@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-		const initialRow = 5;
+    const initialRow = 5;
     const initialCol = 5;
     const initialGrid = [];
     for (let i = 0; i < initialRow; i++) {
@@ -26,8 +26,12 @@ class App extends Component {
   };
 
   handleAddRow = () => {
-    const row = new Array(this.state.grid[0].length).fill(this.state.currentColor);
-    this.setState({grid: [...this.state.grid, row]});
+    if (this.state.grid.length === 0) {
+      this.setState({grid: [[this.state.currentColor]]});
+    } else {
+      const row = new Array(this.state.grid[0].length).fill(this.state.currentColor);
+      this.setState({grid: [...this.state.grid, row]});
+    }
   };
 
   handleClick = (x, y) => {
@@ -44,6 +48,36 @@ class App extends Component {
     console.log("color change event: " + this.state.currentColor);
   };
 
+  handleFillAll = () => {
+    const grid = this.state.grid.map(row =>
+      row.map(() => this.state.currentColor)
+    );
+    this.setState({grid: grid});
+  };
+
+  handleFillUncolored = () => {
+    const { currentColor } = this.state;
+    const grid = this.state.grid;
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid[0].length; j++) {
+        if (grid[i][j] === "default") {
+          grid[i][j] = currentColor;
+        }
+      }
+    }
+    this.setState({grid: grid});
+  }
+
+  handleRemoveColumn = () => {
+      const grid = this.state.grid.map(row => row.slice(0, -1));
+      this.setState({grid: grid});
+  }
+
+  handleRemoveRow = () => {
+      const grid = this.state.grid.slice(0, -1);
+      this.setState({grid: grid});
+  }
+
   render() {
     return (
       <div className="App">
@@ -51,16 +85,18 @@ class App extends Component {
           handleAddColumn={this.handleAddColumn}
           handleAddRow={this.handleAddRow}
           handleColorChange={this.handleColorChange}
+          handleFillAll={this.handleFillAll}
+          handleFillUncolored={this.handleFillUncolored}
+          handleRemoveColumn={this.handleRemoveColumn}
+          handleRemoveRow={this.handleRemoveRow}
         />
         <header className="App-header">
-          <button onClick={this.handleAddRow}>Add a row</button>
-          <button onClick={this.handleAddColumn}>Add a column</button>
           {console.log(this.state.grid)}
           <Table
             grid={this.state.grid}
             handleClick={this.handleClick}
-            rows={this.state.grid.length}
-            cols={this.state.grid[0].length}
+            rows={this.state.grid ? this.state.grid.length : 0}
+            cols={this.state.grid.length ? this.state.grid[0].length : 0}
           />
         </header>
       </div>

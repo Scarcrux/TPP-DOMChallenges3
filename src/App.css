@@ -37,10 +37,6 @@
   }
 }
 
-.default {
-  background-color: #61dafb;
-}
-
 #grid {
   margin: 25px;
 }
@@ -62,4 +58,20 @@ table {
   border-spacing: 7px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.default {
+  background-color: #61dafb;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
 }

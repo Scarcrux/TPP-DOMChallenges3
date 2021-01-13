@@ -37,17 +37,17 @@ const Menu = (props) => {
                 Color
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>
+                <DropdownItem onClick={() => props.handlecolorchange("red")} dropDownValue="red">
                   Red
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem onClick={() => props.handlecolorchange("green")} dropDownValue="green">
                   Green
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem onClick={() => props.handlecolorchange("blue")}>
                   Blue
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>
+                <DropdownItem onClick={() => props.handlecolorchange("default")}>
                   Reset
                 </DropdownItem>
               </DropdownMenu>

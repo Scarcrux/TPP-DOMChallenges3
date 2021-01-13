@@ -27,33 +27,33 @@ const Menu = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="#" onClick={props.handleaddrow}>Add Row</NavLink>
+              <NavLink href="#" onClick={props.handleAddRow}>Add Row</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#" onClick={props.handleaddcolumn}>Add Column</NavLink>
+              <NavLink href="#" onClick={props.handleAddColumn}>Add Column</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Color
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem onClick={() => props.handlecolorchange("red")} dropDownValue="red">
+                <DropdownItem onClick={() => props.handleColorChange("red")} dropDownValue="red">
                   Red
                 </DropdownItem>
-                <DropdownItem onClick={() => props.handlecolorchange("green")} dropDownValue="green">
+                <DropdownItem onClick={() => props.handleColorChange("green")} dropDownValue="green">
                   Green
                 </DropdownItem>
-                <DropdownItem onClick={() => props.handlecolorchange("blue")}>
+                <DropdownItem onClick={() => props.handleColorChange("blue")}>
                   Blue
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem onClick={() => props.handlecolorchange("default")}>
+                <DropdownItem onClick={() => props.handleColorChange("default")}>
                   Reset
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>TPP</NavbarText>
+          <NavLink href="https://www.techtalentpipeline.nyc/">TTP</NavLink>
         </Collapse>
       </Navbar>
     </div>

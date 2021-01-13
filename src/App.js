@@ -9,7 +9,10 @@ class App extends Component {
 
 		const initialRow = 5;
     const initialCol = 5;
-    const initialGrid = new Array(initialRow).fill(new Array(initialCol).fill("default"));
+    const initialGrid = [];
+    for (let i = 0; i < initialRow; i++) {
+      initialGrid.push(new Array(initialCol).fill("default"));
+    }
 
     this.state = {
       currentColor: "default",
@@ -19,26 +22,35 @@ class App extends Component {
 
   handleAddColumn = () => {
     const grid = this.state.grid.map(row => row.concat(this.state.currentColor));
-    this.setState({grid: grid,})
+    this.setState({grid: grid});
   };
 
   handleAddRow = () => {
-    const row = new Array(this.state.grid[0].length).fill(this.state.currentColor)
-    this.setState({grid: [...this.state.grid, row],})
+    const row = new Array(this.state.grid[0].length).fill(this.state.currentColor);
+    this.setState({grid: [...this.state.grid, row]});
+  };
+
+  handleClick = (x, y) => {
+    const grid = this.state.grid;
+    grid[x][y] = this.state.currentColor;
+    console.log("new array x y: " + grid[x][y]);
+    console.log("x, y: " + x + ", ", y);
+    console.log("new grid: " + grid);
+    this.setState({grid: grid});
   };
 
   handleColorChange = (e) => {
-    this.setState({currentColor: e})
-    console.log("color change event: " + this.state.currentColor)
+    this.setState({currentColor: e});
+    console.log("color change event: " + this.state.currentColor);
   };
 
   render() {
     return (
       <div className="App">
         <Menu
-          handleaddcolumn={this.handleAddColumn}
-          handleaddrow={this.handleAddRow}
-          handlecolorchange={this.handleColorChange}
+          handleAddColumn={this.handleAddColumn}
+          handleAddRow={this.handleAddRow}
+          handleColorChange={this.handleColorChange}
         />
         <header className="App-header">
           <button onClick={this.handleAddRow}>Add a row</button>
@@ -46,8 +58,9 @@ class App extends Component {
           {console.log(this.state.grid)}
           <Table
             grid={this.state.grid}
-            x={this.state.grid.length}
-            y={this.state.grid[0].length}
+            handleClick={this.handleClick}
+            rows={this.state.grid.length}
+            cols={this.state.grid[0].length}
           />
         </header>
       </div>

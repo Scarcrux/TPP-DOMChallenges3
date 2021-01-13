@@ -3,11 +3,12 @@ import TableCell from "./TableCell";
 
 export default function TableRow(props) {
   const row = [];
-  for (let i = 0; i < props.y; i++) {
+  for (let i = 0; i < props.cols; i++) {
     row.push(
       <TableCell
         grid={props.grid}
-        x={props.x}
+        handleClick={props.handleClick}
+        x={props.row}
         y={i}
       />
     );

@@ -27,12 +27,18 @@ class App extends Component {
     this.setState({grid: [...this.state.grid, row],})
   };
 
+  handleColorChange = (e) => {
+    this.setState({currentColor: e})
+    console.log("color change event: " + this.state.currentColor)
+  };
+
   render() {
     return (
       <div className="App">
         <Menu
           handleaddcolumn={this.handleAddColumn}
           handleaddrow={this.handleAddRow}
+          handlecolorchange={this.handleColorChange}
         />
         <header className="App-header">
           <button onClick={this.handleAddRow}>Add a row</button>

@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/TTP-DOMChallenges3/static/css/main.cc087b59.chunk.css",
+    "main.js": "/TTP-DOMChallenges3/static/js/main.0555bef5.chunk.js",
+    "main.js.map": "/TTP-DOMChallenges3/static/js/main.0555bef5.chunk.js.map",
+    "runtime-main.js": "/TTP-DOMChallenges3/static/js/runtime-main.4e54924e.js",
+    "runtime-main.js.map": "/TTP-DOMChallenges3/static/js/runtime-main.4e54924e.js.map",
+    "static/css/2.86ea06dd.chunk.css": "/TTP-DOMChallenges3/static/css/2.86ea06dd.chunk.css",
+    "static/js/2.f85e98c1.chunk.js": "/TTP-DOMChallenges3/static/js/2.f85e98c1.chunk.js",
+    "static/js/2.f85e98c1.chunk.js.map": "/TTP-DOMChallenges3/static/js/2.f85e98c1.chunk.js.map",
+    "static/js/3.dd31b39f.chunk.js": "/TTP-DOMChallenges3/static/js/3.dd31b39f.chunk.js",
+    "static/js/3.dd31b39f.chunk.js.map": "/TTP-DOMChallenges3/static/js/3.dd31b39f.chunk.js.map",
+    "index.html": "/TTP-DOMChallenges3/index.html",
+    "static/css/2.86ea06dd.chunk.css.map": "/TTP-DOMChallenges3/static/css/2.86ea06dd.chunk.css.map",
+    "static/css/main.cc087b59.chunk.css.map": "/TTP-DOMChallenges3/static/css/main.cc087b59.chunk.css.map",
+    "static/js/2.f85e98c1.chunk.js.LICENSE.txt": "/TTP-DOMChallenges3/static/js/2.f85e98c1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e54924e.js",
+    "static/css/2.86ea06dd.chunk.css",
+    "static/js/2.f85e98c1.chunk.js",
+    "static/css/main.cc087b59.chunk.css",
+    "static/js/main.0555bef5.chunk.js"
+  ]
+}

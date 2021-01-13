@@ -38,6 +38,9 @@ const Menu = (props) => {
             <NavItem>
               <NavLink href="#" onClick={props.handleRemoveColumn}>Remove Column</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="#" onClick={props.handleFillUncolored}>Fill Uncolored</NavLink>
+            </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Color

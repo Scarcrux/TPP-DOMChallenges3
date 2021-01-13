@@ -48,6 +48,19 @@ class App extends Component {
     console.log("color change event: " + this.state.currentColor);
   };
 
+  handleFillUncolored = () => {
+    const { currentColor } = this.state;
+    const grid = this.state.grid;
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid[0].length; j++) {
+        if (grid[i][j] === "default") {
+          grid[i][j] = currentColor;
+        }
+      }
+    }
+    this.setState({grid: grid});
+  }
+
   handleRemoveColumn = () => {
       const grid = this.state.grid.map(row => row.slice(0, -1));
       this.setState({grid: grid});
@@ -65,6 +78,7 @@ class App extends Component {
           handleAddColumn={this.handleAddColumn}
           handleAddRow={this.handleAddRow}
           handleColorChange={this.handleColorChange}
+          handleFillUncolored={this.handleFillUncolored}
           handleRemoveColumn={this.handleRemoveColumn}
           handleRemoveRow={this.handleRemoveRow}
         />

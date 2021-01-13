@@ -64,6 +64,9 @@ const Menu = (props) => {
             <NavItem>
               <NavLink href="#" onClick={props.handleFillAll}>Fill All</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="#" onClick={props.handleClearAll}>Clear All</NavLink>
+            </NavItem>
           </Nav>
           <NavLink href="https://www.techtalentpipeline.nyc/">TTP</NavLink>
         </Collapse>

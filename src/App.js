@@ -34,6 +34,13 @@ class App extends Component {
     }
   };
 
+  handleClearAll = () => {
+    const grid = this.state.grid.map(row =>
+      row.map(() => "default")
+    );
+    this.setState({grid: grid});
+  };
+
   handleClick = (x, y) => {
     const grid = this.state.grid;
     grid[x][y] = this.state.currentColor;
@@ -84,6 +91,7 @@ class App extends Component {
         <Menu
           handleAddColumn={this.handleAddColumn}
           handleAddRow={this.handleAddRow}
+          handleClearAll={this.handleClearAll}
           handleColorChange={this.handleColorChange}
           handleFillAll={this.handleFillAll}
           handleFillUncolored={this.handleFillUncolored}

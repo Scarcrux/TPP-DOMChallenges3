@@ -3,12 +3,13 @@ import TableRow from "./TableRow";
 
 function Table(props) {
   const cells = [];
-  for (let i = 0; i < props.x; i++) {
+  for (let i = 0; i < props.rows; i++) {
     cells.push(
       <TableRow
+        cols={props.cols}
         grid={props.grid}
-        x={i}
-        y={props.y}
+        handleClick={props.handleClick}
+        row={i}
       />
     );
   }
